@@ -57,6 +57,24 @@ suite('Conways', function () {
            let actualOutputGrid = countNeighbours(inputGrid);
 
            assert.deepEqual(actualOutputGrid, expectedOutputGrid);
-       }) ;
+       });
+        test('return correct number of neighbours for a different input grid', function() {
+            let inputGrid = [
+                {row: 0, col: 0},
+                {row: 0, col: 1},
+                {row: 0, col: 2},
+                {row: 1, col: 0}
+            ];
+            let expectedOutputGrid = [
+                {row: 0, col: 0, numNeighbours: 2},
+                {row: 0, col: 1, numNeighbours: 3},
+                {row: 0, col: 2, numNeighbours: 1},
+                {row: 1, col: 0, numNeighbours: 2}
+            ];
+
+            let actualOutputGrid = countNeighbours(inputGrid);
+
+            assert.deepEqual(actualOutputGrid, expectedOutputGrid);
+        });
     });
 });
