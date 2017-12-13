@@ -3,6 +3,7 @@ function nextGridState(currentGridState) {
 }
 
 function countNeighbours(currentGridState) {
+<<<<<<< HEAD
     let outputGrid = Object.assign([], currentGridState);
 <<<<<<< HEAD
     outputGrid.forEach(cell => {
@@ -12,6 +13,11 @@ function countNeighbours(currentGridState) {
     outputGrid.forEach(cell => cell.numNeighbours = howManyNeighbours(cell, currentGridState));
 >>>>>>> Small refactor
     return outputGrid;
+=======
+    return Array.from(currentGridState, cell => {
+        return {row: cell.row, col: cell.col, numNeighbours: howManyNeighbours(cell, currentGridState)};
+    });
+>>>>>>> Refactor neighbour counter to not modify original objects
 }
 
 function howManyNeighbours(gridElement, currentGridState) {
