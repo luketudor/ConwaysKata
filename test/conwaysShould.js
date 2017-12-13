@@ -3,6 +3,9 @@ let nextGridState = require('../conways').nextGridState;
 
 suite('Conways', function () {
     suite('#NextBoardState', function () {
+        // n.b. All grids, both input and output, operate on the closed-world assumption.
+        // i.e. Every cell that is listed in a grid is assumed to be truthy or "alive", and every other cell is
+        // assumed to be falsy or "dead".
         test('return the same grid for a square input', function () {
             let inputGrid = [
                 {row: 0, col: 0},
