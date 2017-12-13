@@ -14,7 +14,7 @@ suite('Conways', function () {
                 {row: 0, col: 1},
                 {row: 1, col: 0},
                 {row: 1, col: 1}
-                ]);
+            ]);
             let expectedOutputGrid = new Set([
                 {row: 0, col: 0},
                 {row: 0, col: 1},
@@ -26,7 +26,7 @@ suite('Conways', function () {
 
             assert.deepEqual(actualOutputGrid, expectedOutputGrid);
         });
-        test('return the same grid in a different cell order', function() {
+        test('return the same grid in a different cell order', function () {
             let inputGrid = new Set([
                 {row: 0, col: 0},
                 {row: 0, col: 1},
@@ -63,26 +63,26 @@ suite('Conways', function () {
             //assert.deepEqual(actualOutputGrid, expectedOutputGrid);
         });
     });
-    suite('#CountNeighbours', function() {
-       test('return correct number of neighbours for input grid', function() {
-           let inputGrid = [
-               {row: 0, col: 0},
-               {row: 0, col: 1},
-               {row: 1, col: 0},
-               {row: 1, col: 1}
-           ];
-           let expectedOutputGrid = [
-               {row: 0, col: 0, numNeighbours: 3},
-               {row: 0, col: 1, numNeighbours: 3},
-               {row: 1, col: 0, numNeighbours: 3},
-               {row: 1, col: 1, numNeighbours: 3}
-           ];
+    suite('#CountNeighbours', function () {
+        test('return correct number of neighbours for input grid', function () {
+            let inputGrid = [
+                {row: 0, col: 0},
+                {row: 0, col: 1},
+                {row: 1, col: 0},
+                {row: 1, col: 1}
+            ];
+            let expectedOutputGrid = [
+                {row: 0, col: 0, numNeighbours: 3},
+                {row: 0, col: 1, numNeighbours: 3},
+                {row: 1, col: 0, numNeighbours: 3},
+                {row: 1, col: 1, numNeighbours: 3}
+            ];
 
-           let actualOutputGrid = countNeighbours(inputGrid);
+            let actualOutputGrid = countNeighbours(inputGrid);
 
-           assert.deepEqual(actualOutputGrid, expectedOutputGrid);
-       });
-        test('return correct number of neighbours for a different input grid', function() {
+            assert.deepEqual(actualOutputGrid, expectedOutputGrid);
+        });
+        test('return correct number of neighbours for a different input grid', function () {
             let inputGrid = [
                 {row: 0, col: 0},
                 {row: 0, col: 1},
@@ -101,8 +101,8 @@ suite('Conways', function () {
             //assert.deepEqual(actualOutputGrid, expectedOutputGrid);
         });
     });
-    suite('#HowManyNeighbours', function() {
-       test('return number of neighbours for single element', function() {
+    suite('#HowManyNeighbours', function () {
+        test('return number of neighbours for single element', function () {
             let inputGrid = [
                 {row: 0, col: 0},
                 {row: 0, col: 1},
@@ -115,7 +115,7 @@ suite('Conways', function () {
 
             assert.equal(actualOutputNum, expectedOutputNum);
         });
-        test('return number of neighbours for another element', function() {
+        test('return number of neighbours for another element', function () {
             let inputGrid = [
                 {row: 0, col: 0},
                 {row: 0, col: 1},
@@ -129,8 +129,8 @@ suite('Conways', function () {
             assert.equal(actualOutputNum, expectedOutputNum);
         });
     });
-    suite('#HowManyNeighbours', function() {
-       test('return number of neighbours for single element', function() {
+    suite('#HowManyNeighbours', function () {
+        test('return number of neighbours for single element', function () {
             let inputGrid = [
                 {row: 0, col: 0},
                 {row: 0, col: 1},
@@ -143,7 +143,7 @@ suite('Conways', function () {
 
             assert.equal(actualOutputNum, expectedOutputNum);
         });
-        test('return number of neighbours for another element', function() {
+        test('return number of neighbours for another element', function () {
             let inputGrid = [
                 {row: 0, col: 0},
                 {row: 0, col: 1},
