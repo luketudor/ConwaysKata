@@ -1,5 +1,5 @@
 function nextGridState(currentGridState) {
-    return Object.assign([], currentGridState);
+    return new Set(currentGridState);
 }
 
 function countNeighbours(currentGridState) {
