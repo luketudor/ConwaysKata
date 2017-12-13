@@ -15,11 +15,11 @@ function howManyNeighbours(gridElement, currentGridState) {
 }
 
 function inNeighbouringRow(cell, otherCell) {
-    return Math.abs(cell.row - otherCell.row ) < 2;
+    return Math.abs(cell.row - otherCell.row) < 2;
 }
 
 function inNeighbouringCol(cell, otherCell) {
-    return Math.abs(cell.col - otherCell.col ) < 2;
+    return Math.abs(cell.col - otherCell.col) < 2;
 }
 
 module.exports.nextGridState = nextGridState;
