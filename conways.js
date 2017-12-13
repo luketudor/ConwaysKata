@@ -4,7 +4,7 @@ function nextGridState(currentGridState) {
 
 function countNeighbours(currentGridState) {
     return Array.from(currentGridState, cell => {
-        return {row: cell.row, col: cell.col, numNeighbours: howManyNeighbours(cell, currentGridState)};
+        return {row: cell.row, col: cell.col, numNeighbours: howManyNeighbours(cell, Array.from(currentGridState))};
     });
 }
 
