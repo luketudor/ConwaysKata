@@ -17,22 +17,22 @@ suite('Conways', function () {
             assert.deepEqual(actualOutputGrid, expectedOutputGrid);
         });
         test('return the zig-zag tetris piece for the L-shaped tetris piece', function () {
-            let inputBoard = [
+            let inputGrid = [
                 {row: 0, col: 0},
                 {row: 0, col: 1},
                 {row: 0, col: 2},
                 {row: 1, col: 0}
             ];
-            let expectedOutputBoard = [
+            let expectedOutputGrid = [
                 {row: 0, col: 0},
                 {row: 0, col: 1},
                 {row: -1, col: 1},
                 {row: 1, col: 0}
             ];
 
-            let actualOutputBoard = nextGridState(inputBoard);
+            let actualOutputGrid = nextGridState(inputGrid);
 
-            assert.deepEqual(actualOutputBoard, expectedOutputBoard);
+            assert.deepEqual(actualOutputGrid, expectedOutputGrid);
         });
 
     });
