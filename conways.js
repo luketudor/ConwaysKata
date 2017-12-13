@@ -2,6 +2,12 @@ function nextGridState(currentGridState) {
     return new Set(currentGridState);
 }
 
+function survivingCells(currentGridStateWithNeighbours) {
+    return currentGridStateWithNeighbours.map(cell => {
+        return {row: cell.row, col: cell.col};
+    });
+}
+
 function countNeighbours(currentGridState) {
     return Array.from(currentGridState, cell => {
         return {row: cell.row, col: cell.col, numNeighbours: howManyNeighbours(cell, Array.from(currentGridState))};
@@ -22,6 +28,7 @@ function inNeighbouringCol(cell, otherCell) {
     return Math.abs(cell.col - otherCell.col) < 2;
 }
 
+module.exports.survivingCells = survivingCells;
 module.exports.nextGridState = nextGridState;
 module.exports.countNeighbours = countNeighbours;
 module.exports.howManyNeighbours = howManyNeighbours;
