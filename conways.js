@@ -1,5 +1,5 @@
-function nextBoardState(currentBoardState) {
-    return Object.assign({}, currentBoardState);
+function nextGridState(currentGridState) {
+    return Object.assign({}, currentGridState);
 }
 
-module.exports.nextBoardState = nextBoardState;
+module.exports.nextGridState = nextGridState;
