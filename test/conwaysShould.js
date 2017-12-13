@@ -106,4 +106,32 @@ suite('Conways', function () {
             assert.equal(actualOutputNum, expectedOutputNum);
         });
     });
+    suite('#HowManyNeighbours', function() {
+       test('return number of neighbours for single element', function() {
+            let inputGrid = [
+                {row: 0, col: 0},
+                {row: 0, col: 1},
+                {row: 0, col: 2},
+                {row: 1, col: 0}
+            ];
+            let expectedOutputNum = 2;
+
+            let actualOutputNum = howManyNeighbours(inputGrid[0], inputGrid);
+
+            assert.equal(actualOutputNum, expectedOutputNum);
+        });
+        test('return number of neighbours for another element', function() {
+            let inputGrid = [
+                {row: 0, col: 0},
+                {row: 0, col: 1},
+                {row: 0, col: 2},
+                {row: 1, col: 0}
+            ];
+            let expectedOutputNum = 1;
+
+            let actualOutputNum = howManyNeighbours(inputGrid[2], inputGrid);
+
+            assert.equal(actualOutputNum, expectedOutputNum);
+        });
+    });
 });
