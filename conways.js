@@ -3,9 +3,7 @@ function nextGridState(currentGridState) {
 }
 
 function survivingCells(currentGridStateWithNeighbours) {
-    return currentGridStateWithNeighbours.map(cell => {
-        return {row: cell.row, col: cell.col};
-    });
+    return currentGridStateWithNeighbours.filter(cell => cell.numNeighbours === 3 || cell.numNeighbours === 2);
 }
 
 function countNeighbours(currentGridState) {
