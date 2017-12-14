@@ -3,6 +3,7 @@ let nextGridState = require('../conways').nextGridState;
 let countNeighbours = require('../conways').countNeighbours;
 let howManyNeighbours = require('../conways').howManyNeighbours;
 let survivingCells = require('../conways').survivingCells;
+let newCells = require('../conways').newCells;
 
 suite('Conways', function () {
     suite('#NextBoardState', function () {
@@ -191,6 +192,21 @@ suite('Conways', function () {
            ];
 
            let actualOutputGrid = survivingCells(inputGrid);
+
+           assert.deepEqual(actualOutputGrid, expectedOutputGrid);
+       });
+    });
+    suite('#NewCells', function() {
+       test('return no new cells', function() {
+           let inputGrid = [
+               {row: 0, col: 0, numNeighbours: 3},
+               {row: 0, col: 1, numNeighbours: 3},
+               {row: 1, col: 0, numNeighbours: 3},
+               {row: 1, col: 1, numNeighbours: 3}
+           ];
+           let expectedOutputGrid = [];
+
+           let actualOutputGrid = newCells(inputGrid);
 
            assert.deepEqual(actualOutputGrid, expectedOutputGrid);
        });
