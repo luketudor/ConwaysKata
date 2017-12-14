@@ -62,7 +62,7 @@ suite('Conways', function () {
 
             let actualOutputGrid = nextGridState(inputGrid);
 
-            //assert.deepEqual(actualOutputGrid, expectedOutputGrid);
+            assert.deepEqual(actualOutputGrid, expectedOutputGrid);
         });
     });
     suite('#CountNeighbours', function () {

@@ -1,5 +1,9 @@
 function nextGridState(currentGridState) {
-    return new Set(currentGridState);
+    var countedCells = countNeighbours(Array.from(currentGridState));
+    var aliveCells = survivingCells(countedCells);
+    aliveCells.forEach(cell => delete cell.numNeighbours);
+    var createdCells = newCells(countedCells);
+    return new Set(aliveCells.concat(createdCells));
 }
 
 function survivingCells(currentGridStateWithNeighbours) {
@@ -30,8 +34,8 @@ function newCells(currentGridStateWithNeighbours) {
     }
 
     let newCells = [];
-    for (var [key, value] of candidateZombies) {
-        if (value === 3) {
+    for (var [key, count] of candidateZombies) {
+        if (count === 3) {
             let location = key.split(',');
             newCells.push({row: Number.parseInt(location[0], 10), col: Number.parseInt(location[1], 10)});
         }
