@@ -1,8 +1,6 @@
 function nextGridState(currentGridState) {
-    var countedCells = countNeighbours(Array.from(currentGridState));
-    var aliveCells = survivingCells(countedCells);
-    var createdCells = newCells(countedCells);
-    return new Set(aliveCells.concat(createdCells));
+    let countedCells = countNeighbours(Array.from(currentGridState));
+    return new Set(survivingCells(countedCells).concat(newCells(countedCells)));
 }
 
 function survivingCells(currentGridStateWithNeighbours) {
