@@ -11,8 +11,8 @@ function newCells(currentGridStateWithNeighbours) {
 }
 
 function countNeighbours(currentGridState) {
-    return Array.from(currentGridState, cell => {
-        return {row: cell.row, col: cell.col, numNeighbours: howManyNeighbours(cell, Array.from(currentGridState))};
+    return currentGridState.map(cell => {
+        return {row: cell.row, col: cell.col, numNeighbours: howManyNeighbours(cell, currentGridState)};
     });
 }
 
