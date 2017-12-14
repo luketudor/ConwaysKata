@@ -1,13 +1,13 @@
 function nextGridState(currentGridState) {
     var countedCells = countNeighbours(Array.from(currentGridState));
     var aliveCells = survivingCells(countedCells);
-    aliveCells.forEach(cell => delete cell.numNeighbours);
     var createdCells = newCells(countedCells);
     return new Set(aliveCells.concat(createdCells));
 }
 
 function survivingCells(currentGridStateWithNeighbours) {
-    return currentGridStateWithNeighbours.filter(cell => cell.numNeighbours === 3 || cell.numNeighbours === 2);
+    return currentGridStateWithNeighbours.filter(cell => (cell.numNeighbours === 3 || cell.numNeighbours === 2) &&
+    delete cell.numNeighbours);
 }
 
 function newCells(currentGridStateWithNeighbours) {
