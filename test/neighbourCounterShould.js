@@ -18,7 +18,7 @@ suite('NeighbourCounter', function () {
                 ['1,1', 3]
             ]);
 
-            let actualOutputMap = countNeighbours(inputGrid);
+            let actualOutputMap = countNeighbours(inputGrid, inputGrid);
 
             assert.deepEqual(actualOutputMap, expectedOutputMap);
         });
@@ -36,7 +36,7 @@ suite('NeighbourCounter', function () {
                 ['1,0', 2]
             ]);
 
-            let actualOutputMap = countNeighbours(inputGrid);
+            let actualOutputMap = countNeighbours(inputGrid, inputGrid);
 
             assert.deepEqual(actualOutputMap, expectedOutputMap);
         });

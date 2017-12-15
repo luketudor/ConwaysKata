@@ -1,7 +1,7 @@
 let countNeighbours = require('./neighbourCounter').countNeighbours;
 
 function survivingCells(currentGridStateWithNeighbours) {
-    let neighbours = countNeighbours(currentGridStateWithNeighbours);
+    let neighbours = countNeighbours(currentGridStateWithNeighbours, currentGridStateWithNeighbours);
     return currentGridStateWithNeighbours.filter(
         cell => {
             let numNeighbours = neighbours.get(`${cell.row},${cell.col}`);
