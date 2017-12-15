@@ -8,16 +8,16 @@ function countNeighbours(cellsToCount, potentialNeighbours) {
 
 function howManyNeighbours(gridElement, currentGridState) {
     return currentGridState.filter(
-        cell => inNeighbouringRow(gridElement, cell) && inNeighbouringCol(gridElement, cell)
+        cell => inNeighbouringRow(gridElement, cell) && inNeighbouringCol(gridElement, cell) && gridElement !== cell
     ).length;
 }
 
 function inNeighbouringRow(cell, otherCell) {
-    return Math.abs(cell.row - otherCell.row) < 2 && cell !== otherCell;
+    return Math.abs(cell.row - otherCell.row) < 2;
 }
 
 function inNeighbouringCol(cell, otherCell) {
-    return Math.abs(cell.col - otherCell.col) < 2 && cell !== otherCell;
+    return Math.abs(cell.col - otherCell.col) < 2;
 }
 
 module.exports.countNeighbours = countNeighbours;
