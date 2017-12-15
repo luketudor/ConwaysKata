@@ -2,7 +2,7 @@ let assert = require('assert');
 let countNeighbours = require('../neighbourCounter').countNeighbours;
 let howManyNeighbours = require('../neighbourCounter').howManyNeighbours;
 
-suite('Conways', function () {
+suite('NeighbourCounter', function () {
     suite('#CountNeighbours', function () {
         test('return correct number of neighbours for input grid', function () {
             let inputGrid = [
