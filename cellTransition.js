@@ -11,21 +11,16 @@ function survivingCells(currentGridStateWithNeighbours) {
 }
 
 function newCells(currentGridStateWithNeighbours) {
-    let candidateZombies = new Map();
+    let allPossibleZombies = new Set();
     for (let cell of currentGridStateWithNeighbours) {
         for (let row = cell.row - 1; row <= cell.row + 1; row++) {
             for (let col = cell.col - 1; col <= cell.col + 1; col++) {
-                let candidateZombie = `${row},${col}`;
-                let numNeighbours = candidateZombies.get(candidateZombie);
-                if (candidateZombies.get(candidateZombie)) {
-                    candidateZombies.set(candidateZombie, numNeighbours + 1);
-                } else {
-                    candidateZombies.set(candidateZombie, 1);
-                }
+                allPossibleZombies.add({row, col});
             }
         }
     }
-
+    let candidateZombies = countNeighbours(Array.from(allPossibleZombies), currentGridStateWithNeighbours);
+    
     for (const oldCell of currentGridStateWithNeighbours) {
         let key = `${oldCell.row},${oldCell.col}`;
         if (candidateZombies.has(key)) {

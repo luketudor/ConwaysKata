@@ -9,15 +9,15 @@ function countNeighbours(cellsToCount, potentialNeighbours) {
 function howManyNeighbours(gridElement, currentGridState) {
     return currentGridState.filter(
         cell => inNeighbouringRow(gridElement, cell) && inNeighbouringCol(gridElement, cell)
-    ).length - 1;
+    ).length;
 }
 
 function inNeighbouringRow(cell, otherCell) {
-    return Math.abs(cell.row - otherCell.row) < 2;
+    return Math.abs(cell.row - otherCell.row) < 2 && cell !== otherCell;
 }
 
 function inNeighbouringCol(cell, otherCell) {
-    return Math.abs(cell.col - otherCell.col) < 2;
+    return Math.abs(cell.col - otherCell.col) < 2 && cell !== otherCell;
 }
 
 module.exports.countNeighbours = countNeighbours;
