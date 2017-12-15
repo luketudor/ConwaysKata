@@ -6,10 +6,10 @@ suite('CellTransition', function () {
     suite('#SurvivingCells', function() {
         test('return all cells as surviving', function() {
             let inputGrid = [
-                {row: 0, col: 0, numNeighbours: 3},
-                {row: 0, col: 1, numNeighbours: 3},
-                {row: 1, col: 0, numNeighbours: 3},
-                {row: 1, col: 1, numNeighbours: 3}
+                {row: 0, col: 0},
+                {row: 0, col: 1},
+                {row: 1, col: 0},
+                {row: 1, col: 1}
             ];
             let expectedOutputGrid = [
                 {row: 0, col: 0},
@@ -24,10 +24,10 @@ suite('CellTransition', function () {
         });
         test('return some cells as surviving', function () {
             let inputGrid = [
-                {row: 0, col: 0, numNeighbours: 2},
-                {row: 0, col: 1, numNeighbours: 3},
-                {row: 0, col: 2, numNeighbours: 1},
-                {row: 1, col: 0, numNeighbours: 2}
+                {row: 0, col: 0},
+                {row: 0, col: 1},
+                {row: 0, col: 2},
+                {row: 1, col: 0}
             ];
             let expectedOutputGrid = [
                 {row: 0, col: 0},

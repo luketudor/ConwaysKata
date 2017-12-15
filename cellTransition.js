@@ -1,6 +1,13 @@
+let countNeighbours = require('./neighbourCounter').countNeighbours;
+
 function survivingCells(currentGridStateWithNeighbours) {
-    return currentGridStateWithNeighbours.filter(cell => (cell.numNeighbours === 3 || cell.numNeighbours === 2) &&
-        delete cell.numNeighbours);
+    let neighbours = countNeighbours(currentGridStateWithNeighbours);
+    return currentGridStateWithNeighbours.filter(cell => {
+        let numNeighbours = neighbours.get(`${cell.row},${cell.col}`);
+        return numNeighbours === 3 || numNeighbours === 2
+    });
+    //return currentGridStateWithNeighbours.filter(cell => (cell.numNeighbours === 3 || cell.numNeighbours === 2) &&
+        //delete cell.numNeighbours);
 }
 
 function newCells(currentGridStateWithNeighbours) {

@@ -11,16 +11,16 @@ suite('NeighbourCounter', function () {
                 {row: 1, col: 0},
                 {row: 1, col: 1}
             ];
-            let expectedOutputGrid = [
-                {row: 0, col: 0, numNeighbours: 3},
-                {row: 0, col: 1, numNeighbours: 3},
-                {row: 1, col: 0, numNeighbours: 3},
-                {row: 1, col: 1, numNeighbours: 3}
-            ];
+            let expectedOutputMap = new Map([
+                ['0,0', 3],
+                ['0,1', 3],
+                ['1,0', 3],
+                ['1,1', 3]
+            ]);
 
-            let actualOutputGrid = countNeighbours(inputGrid);
+            let actualOutputMap = countNeighbours(inputGrid);
 
-            assert.deepEqual(actualOutputGrid, expectedOutputGrid);
+            assert.deepEqual(actualOutputMap, expectedOutputMap);
         });
         test('return correct number of neighbours for a different input grid', function () {
             let inputGrid = [
@@ -29,16 +29,16 @@ suite('NeighbourCounter', function () {
                 {row: 0, col: 2},
                 {row: 1, col: 0}
             ];
-            let expectedOutputGrid = [
-                {row: 0, col: 0, numNeighbours: 2},
-                {row: 0, col: 1, numNeighbours: 3},
-                {row: 0, col: 2, numNeighbours: 1},
-                {row: 1, col: 0, numNeighbours: 2}
-            ];
+            let expectedOutputMap = new Map([
+                ['0,0', 2],
+                ['0,1', 3],
+                ['0,2', 1],
+                ['1,0', 2]
+            ]);
 
-            let actualOutputGrid = countNeighbours(inputGrid);
+            let actualOutputMap = countNeighbours(inputGrid);
 
-            assert.deepEqual(actualOutputGrid, expectedOutputGrid);
+            assert.deepEqual(actualOutputMap, expectedOutputMap);
         });
     });
     suite('#HowManyNeighbours', function () {

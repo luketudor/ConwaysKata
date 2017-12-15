@@ -1,12 +1,13 @@
 function countNeighbours(currentGridState) {
-    return currentGridState.map(cell => {
-        return {row: cell.row, col: cell.col, numNeighbours: howManyNeighbours(cell, currentGridState)};
-    });
+    return new Map(currentGridState.map(cell => [`${cell.row},${cell.col}`, howManyNeighbours(cell, currentGridState)]));
+    //return currentGridState.map(cell => {
+    //    return {row: cell.row, col: cell.col, numNeighbours: howManyNeighbours(cell, currentGridState)};
+    //});
 }
 
 function howManyNeighbours(gridElement, currentGridState) {
-    return currentGridState.filter(cell =>
-        inNeighbouringRow(gridElement, cell) && inNeighbouringCol(gridElement, cell)
+    return currentGridState.filter(
+        cell => inNeighbouringRow(gridElement, cell) && inNeighbouringCol(gridElement, cell)
     ).length - 1;
 }
 
