@@ -22,10 +22,7 @@ function newCells(currentGridStateWithNeighbours) {
     let candidateZombies = countNeighbours(Array.from(allPossibleZombies), currentGridStateWithNeighbours);
     
     for (const oldCell of currentGridStateWithNeighbours) {
-        let key = `${oldCell.row},${oldCell.col}`;
-        if (candidateZombies.has(key)) {
-            candidateZombies.delete(key);
-        }
+        candidateZombies.delete(`${oldCell.row},${oldCell.col}`);
     }
 
     let newCells = [];
