@@ -1,8 +1,6 @@
 let nextGridState = require('./conways').nextGridState;
 let printGrid = require('./conways').printGrid;
 
-// Credit: Chester Booker
-// Makes the current thread do a busy wait for a specified amount of time
 function sleep(milliseconds) {
     var start = new Date().getTime();
     for (var i = 0; i < 1e7; i++) {
