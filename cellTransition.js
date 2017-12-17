@@ -1,12 +1,12 @@
-let countNeighbours = require('./neighbourCounter').countNeighbours;
+const countNeighbours = require('./neighbourCounter').countNeighbours;
 
-let mapKeySeparator = ';'
+const mapKeySeparator = ';'
 
 function survivingCells(currentLiveCells) {
-    let neighbours = countNeighbours(currentLiveCells, currentLiveCells, mapKeySeparator);
+    const neighbours = countNeighbours(currentLiveCells, currentLiveCells, mapKeySeparator);
     return currentLiveCells.filter(
         cell => {
-            let numNeighbours = neighbours.get(`${cell.row}${mapKeySeparator}${cell.col}`);
+            const numNeighbours = neighbours.get(`${cell.row}${mapKeySeparator}${cell.col}`);
             return numNeighbours === 3 || numNeighbours === 2
         }
     );
@@ -17,15 +17,15 @@ function newCells(currentLiveCells) {
 }
 
 function possibleNewCellsMap(liveCellsArray) {
-    let allPossibleZombies = new Set();
-    for (let cell of liveCellsArray) {
-        for (let row of [cell.row - 1, cell.row, cell.row + 1]) {
-            for (let col of [cell.col - 1, cell.col, cell.col + 1]) {
+    const allPossibleZombies = new Set();
+    for (const cell of liveCellsArray) {
+        for (const row of [cell.row - 1, cell.row, cell.row + 1]) {
+            for (const col of [cell.col - 1, cell.col, cell.col + 1]) {
                 allPossibleZombies.add({row, col});
             }
         }
     }
-    let candidateZombies = countNeighbours(Array.from(allPossibleZombies), liveCellsArray, mapKeySeparator);
+    const candidateZombies = countNeighbours(Array.from(allPossibleZombies), liveCellsArray, mapKeySeparator);
 
     for (const oldCell of liveCellsArray) {
         candidateZombies.delete(`${oldCell.row}${mapKeySeparator}${oldCell.col}`);
@@ -34,10 +34,10 @@ function possibleNewCellsMap(liveCellsArray) {
 }
 
 function newCellsWithCorrectNeighbours(possibleNewCellsMap) {
-    let trueZombies = [];
+    const trueZombies = [];
     for (const [key, count] of possibleNewCellsMap) {
         if (count === 3) {
-            let location = key.split(mapKeySeparator);
+            const location = key.split(mapKeySeparator);
             trueZombies.push({row: Number.parseInt(location[0], 10), col: Number.parseInt(location[1], 10)});
         }
     }

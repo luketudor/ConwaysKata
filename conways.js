@@ -1,5 +1,5 @@
-let survivingCells = require('./cellTransition').survivingCells;
-let newCells = require('./cellTransition').newCells;
+const survivingCells = require('./cellTransition').survivingCells;
+const newCells = require('./cellTransition').newCells;
 
 function nextGridState(currentGridState) {
     return new Set(nextGridStateArray(Array.from(currentGridState)));
