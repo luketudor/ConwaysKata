@@ -12,12 +12,12 @@ function sleep(milliseconds) {
 
 console.log('Conway\'s Game of Life');
 let liveCells = new Set([
-    {row: 0, col: 0},
     {row: 0, col: 1},
     {row: 0, col: 2},
-    {row: 1, col: 0}
+    {row: 0, col: 3},
+    {row: -1, col: 2}
 ]);
-for (let i = 0; i < 5; i++) {
+for (let i = 0; i < 60; i++) {
     printGrid(liveCells);
     console.log();
     sleep(1000);
