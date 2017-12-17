@@ -19,8 +19,8 @@ function newCells(currentGridStateWithNeighbours) {
 function possibleNewCellsMap(liveCellsArray) {
     let allPossibleZombies = new Set();
     for (let cell of liveCellsArray) {
-        for (let row = cell.row - 1; row <= cell.row + 1; row++) {
-            for (let col = cell.col - 1; col <= cell.col + 1; col++) {
+        for (let row of [cell.row - 1, cell.row, cell.row + 1]) {
+            for (let col of [cell.col - 1, cell.col, cell.col + 1]) {
                 allPossibleZombies.add({row, col});
             }
         }
