@@ -1,7 +1,7 @@
 let countNeighbours = require('./neighbourCounter').countNeighbours;
 
 function survivingCells(currentGridStateWithNeighbours) {
-    let neighbours = countNeighbours(currentGridStateWithNeighbours, currentGridStateWithNeighbours);
+    let neighbours = countNeighbours(currentGridStateWithNeighbours, currentGridStateWithNeighbours, ',');
     return currentGridStateWithNeighbours.filter(
         cell => {
             let numNeighbours = neighbours.get(`${cell.row},${cell.col}`);
@@ -25,7 +25,7 @@ function possibleNewCellsMap(liveCellsArray) {
             }
         }
     }
-    let candidateZombies = countNeighbours(Array.from(allPossibleZombies), liveCellsArray);
+    let candidateZombies = countNeighbours(Array.from(allPossibleZombies), liveCellsArray, ',');
 
     for (const oldCell of liveCellsArray) {
         candidateZombies.delete(`${oldCell.row},${oldCell.col}`);

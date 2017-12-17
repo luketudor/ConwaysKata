@@ -1,7 +1,7 @@
-function countNeighbours(cellsToCount, potentialNeighbours) {
+function countNeighbours(cellsToCount, potentialNeighbours, keySeparator) {
     return new Map(
         cellsToCount.map(
-            cell => [`${cell.row},${cell.col}`, howManyNeighbours(cell, potentialNeighbours)]
+            cell => [`${cell.row}${keySeparator}${cell.col}`, howManyNeighbours(cell, potentialNeighbours)]
         )
     );
 }
