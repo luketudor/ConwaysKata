@@ -1,6 +1,10 @@
 const survivingCells = require('./cellTransition').survivingCells;
 const newCells = require('./cellTransition').newCells;
 
+const liveCellMarker = 'X';
+const deadCellMarker = ' ';
+const gridRadius = 3;
+
 function nextGridState(currentGridState) {
     return new Set(nextGridStateArray(Array.from(currentGridState)));
 }
@@ -11,19 +15,19 @@ function nextGridStateArray(currentGridStateArray) {
 
 function printGrid(liveCells) {
     let liveCellsArray = [];
-    for (let i = 0; i < 10; i++) {
+    for (let i = 0; i < gridRadius*2; i++) {
         liveCellsArray[i] = [];
     }
     for (let cell of liveCells) {
-        liveCellsArray[cell.row + 5][cell.col + 5] = true;
+        liveCellsArray[cell.row + gridRadius][cell.col + gridRadius] = true;
     }
     for (let row of liveCellsArray) {
         let stringRow = '';
-        for (let ele of row) {
-            if (ele) {
-                stringRow += 'X';
+        for (let cell of row) {
+            if (cell) {
+                stringRow += liveCellMarker;
             } else {
-                stringRow += ' ';
+                stringRow += deadCellMarker;
             }
         }
         console.log(stringRow);
