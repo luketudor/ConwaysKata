@@ -21,6 +21,7 @@ let liveCells = new Set([
 ]);
 for (let i = 0; i < 5; i++) {
     printGrid(liveCells);
+    console.log();
     sleep(1000);
     liveCells = nextGridState(liveCells);
 }
