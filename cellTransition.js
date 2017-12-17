@@ -17,19 +17,19 @@ function newCells(currentLiveCells) {
 }
 
 function possibleNewCellsMap(liveCellsArray) {
+    const liveCellsSet = new Set(liveCellsArray.map(cell => `${cell.row}${mapKeySeparator}${cell.col}`));
     const allPossibleZombies = new Set();
     for (const cell of liveCellsArray) {
         for (const row of [cell.row - 1, cell.row, cell.row + 1]) {
             for (const col of [cell.col - 1, cell.col, cell.col + 1]) {
-                allPossibleZombies.add({row, col});
+                if (!liveCellsSet.has(`${row}${mapKeySeparator}${col}`)) {
+                    allPossibleZombies.add({row, col});
+                }
             }
         }
     }
     const candidateZombies = countNeighbours(Array.from(allPossibleZombies), liveCellsArray, mapKeySeparator);
 
-    for (const oldCell of liveCellsArray) {
-        candidateZombies.delete(`${oldCell.row}${mapKeySeparator}${oldCell.col}`);
-    }
     return candidateZombies;
 }
 
