@@ -14,22 +14,18 @@ function nextGridStateArray(currentGridStateArray) {
 }
 
 function printGrid(liveCells) {
-    let gridArray = [];
+    const gridArray = [];
     for (let i = 0; i < gridRadius*2; i++) {
         gridArray[i] = [];
         gridArray[i][gridRadius*2 - 1] = false;
     }
-    for (let cell of liveCells) {
+    for (const cell of liveCells) {
         gridArray[cell.row + gridRadius][cell.col + gridRadius] = true;
     }
-    for (let row of gridArray) {
+    for (const row of gridArray) {
         let stringRow = '';
-        for (let cell of row) {
-            if (cell) {
-                stringRow += liveCellMarker;
-            } else {
-                stringRow += deadCellMarker;
-            }
+        for (const cell of row) {
+            stringRow += cell ? liveCellMarker : deadCellMarker;
         }
         console.log(stringRow);
     }
