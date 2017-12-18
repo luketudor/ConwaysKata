@@ -31,11 +31,11 @@ function printGrid(liveCells) {
     }
 }
 
-function parseBitmap(bitArray) {
+function parseBitmap(bitmap) {
     const liveCells = new Set();
-    for (let i = 0; i < bitArray.length; i++) {
-        for (let j = 0; j < bitArray[i].length; j++) {
-            if (bitArray[i][j]) {
+    for (let i = 0; i < bitmap.length; i++) {
+        for (let j = 0; j < bitmap[i].length; j++) {
+            if (bitmap[i][j]) {
                 liveCells.add({row: i, col: j});
             }
         }
