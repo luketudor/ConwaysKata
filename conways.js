@@ -3,7 +3,7 @@ const newCells = require('./cellTransition').newCells;
 
 const liveCellMarker = 'X';
 const deadCellMarker = '-';
-const gridRadius = 10;
+const gridRadius = 20;
 
 function nextGridState(currentGridState) {
     return new Set(nextGridStateArray(Array.from(currentGridState)));

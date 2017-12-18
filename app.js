@@ -18,12 +18,20 @@ console.log('Conway\'s Game of Life');
     {row: 0, col: 3},
     {row: -1, col: 2}
 ]);*/
-let liveCells = parseBitmap([
+let smallExploder = [
     [0, 1, 0],
     [1, 1, 1],
     [1, 0, 1],
     [0, 1, 0]
-]);
+];
+let largeExploder = [
+    [1, 0, 1, 0, 1],
+    [1, 0, 0, 0, 1],
+    [1, 0, 0, 0, 1],
+    [1, 0, 0, 0, 1],
+    [1, 0, 1, 0, 1]
+];
+let liveCells = parseBitmap(largeExploder);
 for (let i = 0; i < 60; i++) {
     printGrid(liveCells);
     console.log();
