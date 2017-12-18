@@ -1,7 +1,6 @@
 let assert = require('assert');
 let nextGridState = require('../conways').nextGridState;
-let survivingCells = require('../cellTransition').survivingCells;
-let newCells = require('../cellTransition').newCells;
+let parseBitmap = require('../conways').parseBitmap;
 
 suite('Conways', function () {
     suite('#NextBoardState', function () {
@@ -61,6 +60,36 @@ suite('Conways', function () {
             let actualOutputGrid = nextGridState(inputGrid);
 
             assert.deepEqual(actualOutputGrid, expectedOutputGrid);
+        });
+    });
+    suite('#ParseBitmap', function() {
+        test('return an empty set for blank bitmap', function() {
+            let inputArray = [
+              [0, 0, 0],
+              [0, 0, 0],
+              [0, 0, 0]
+            ];
+            let expectedOutputSet = new Set();
+
+            let actualOutputSet = parseBitmap(inputArray);
+
+            assert.deepEqual(actualOutputSet, expectedOutputSet);
+        });
+        test('return a T set for T shaped bitmap', function() {
+            let inputArray = [
+                [0, 1, 0],
+                [1, 1, 1]
+            ];
+            let expectedOutputSet = new Set([
+                {row: 0, col: 1},
+                {row: 1, col: 0},
+                {row: 1, col: 1},
+                {row: 1, col: 2}
+            ]);
+
+            let actualOutputSet = parseBitmap(inputArray);
+
+            assert.deepEqual(actualOutputSet, expectedOutputSet);
         });
     });
 });

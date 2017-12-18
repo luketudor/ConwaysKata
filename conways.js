@@ -31,5 +31,18 @@ function printGrid(liveCells) {
     }
 }
 
+function parseBitmap(bitArray) {
+    const liveCells = new Set();
+    for (let i = 0; i < bitArray.length; i++) {
+        for (let j = 0; j < bitArray[i].length; j++) {
+            if (bitArray[i][j]) {
+                liveCells.add({row: i, col: j});
+            }
+        }
+    }
+    return liveCells;
+}
+
+module.exports.parseBitmap = parseBitmap;
 module.exports.printGrid = printGrid;
 module.exports.nextGridState = nextGridState;
