@@ -31,7 +31,12 @@ let largeExploder = [
     [1, 0, 0, 0, 1],
     [1, 0, 1, 0, 1]
 ];
-let liveCells = parseBitmap(largeExploder);
+let glider = [
+    [0, 1, 0],
+    [0, 0, 1],
+    [1, 1, 1]
+];
+let liveCells = parseBitmap(glider);
 for (let i = 0; i < 60; i++) {
     printGrid(liveCells);
     console.log();
