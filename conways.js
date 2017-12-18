@@ -20,12 +20,16 @@ function printGrid(liveCells) {
         gridArray[i][gridRadius*2 - 1] = false;
     }
     for (const cell of liveCells) {
-        gridArray[cell.row + gridRadius][cell.col + gridRadius] = true;
+        try {
+            gridArray[cell.row + gridRadius][cell.col + gridRadius] = true;
+        } catch (e) {
+            // It's fine if rows and cols are out of bounds
+        }
     }
-    for (const row of gridArray) {
+    for (let i = 0; i < gridRadius*2; i++) {
         let stringRow = '';
-        for (const cell of row) {
-            stringRow += cell ? liveCellMarker : deadCellMarker;
+        for (let j = 0; j < gridRadius*2; j++) {
+            stringRow += gridArray[i][j] ? liveCellMarker : deadCellMarker;
         }
         console.log(stringRow);
     }
