@@ -38,4 +38,4 @@ let gosperGliderGun = [
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1]
 ];
 let liveCells = parseBitmap(gosperGliderGun);
-runApp(liveCells, 1000);
+runApp(liveCells, 500);
