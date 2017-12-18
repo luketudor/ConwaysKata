@@ -36,7 +36,7 @@ function newCellsWithCorrectNeighbours(possibleNewCellsMap) {
     for (const [key, count] of possibleNewCellsMap) {
         if (count === 3) {
             const location = key.split(mapKeySeparator);
-            trueZombies.push({row: Number.parseInt(location[0], 10), col: Number.parseInt(location[1], 10)});
+            trueZombies.push({row: parseInt(location[0], 10), col: parseInt(location[1], 10)});
         }
     }
     return trueZombies;

@@ -2,22 +2,12 @@ let nextGridState = require('./conways').nextGridState;
 let printGrid = require('./conways').printGrid;
 let parseBitmap = require('./conways').parseBitmap;
 
-function sleep(milliseconds) {
-    var start = new Date().getTime();
-    for (var i = 0; i < 1e7; i++) {
-        if ((new Date().getTime() - start) > milliseconds){
-            break;
-        }
-    }
+function runApp(liveCells, milliseconds) {
+    printGrid(liveCells);
+    setTimeout(() => runApp(nextGridState(liveCells), milliseconds), milliseconds);
 }
 
 console.log('Conway\'s Game of Life');
-/*let liveCells = new Set([
-    {row: 0, col: 1},
-    {row: 0, col: 2},
-    {row: 0, col: 3},
-    {row: -1, col: 2}
-]);*/
 let smallExploder = [
     [0, 1, 0],
     [1, 1, 1],
@@ -48,9 +38,4 @@ let gosperGliderGun = [
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1]
 ];
 let liveCells = parseBitmap(gosperGliderGun);
-for (;;) {
-    printGrid(liveCells);
-    console.log();
-    sleep(1000);
-    liveCells = nextGridState(liveCells);
-}
+runApp(liveCells, 1000);
