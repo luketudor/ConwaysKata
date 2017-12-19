@@ -19,5 +19,7 @@ function inNeighbouringField(cell, otherCell, fieldName) {
     return Math.abs(cell[fieldName] - otherCell[fieldName]) < 2;
 }
 
-module.exports.countNeighbours = countNeighbours;
-module.exports.howManyNeighbours = howManyNeighbours;
+module.exports = {
+    countNeighbours,
+    howManyNeighbours
+};
