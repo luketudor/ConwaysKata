@@ -1,4 +1,5 @@
 const countNeighbours = require('./neighbourCounter').countNeighbours;
+const range = require('../util/range').range;
 
 const mapKeySeparator = ';';
 
@@ -24,8 +25,8 @@ function* allPossibleZombies(liveCellsArray, cellKeySet) {
 }
 
 function* allNeighboursOf(cell) {
-    for (const row of [cell.row - 1, cell.row, cell.row + 1]) {
-        for (const col of [cell.col - 1, cell.col, cell.col + 1]) {
+    for (const row of range(cell.row - 1, cell.row + 1)) {
+        for (const col of range(cell.col - 1, cell.col + 1)) {
             yield {row, col};
         }
     }
