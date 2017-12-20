@@ -7,18 +7,22 @@ function newCells(currentLiveCells) {
 }
 
 function possibleNewCellsMap(liveCellsArray) {
-    function* allPossibleZombies() {
-        for (const cell of liveCellsArray) {
-            for (const neighbour of allNeighboursOf(cell)) {
-                if (!liveCellsSet.has(`${neighbour.row}${mapKeySeparator}${neighbour.col}`)) {
-                    yield neighbour;
-                }
+
+    const cellKeySet = new Set(liveCellsArray.map(cell => `${cell.row}${mapKeySeparator}${cell.col}`));
+
+    return countNeighbours(
+        Array.from(new Set(allPossibleZombies(liveCellsArray, cellKeySet))), liveCellsArray, mapKeySeparator
+    );
+}
+
+function* allPossibleZombies(liveCellsArray, cellKeySet) {
+    for (const cell of liveCellsArray) {
+        for (const neighbour of allNeighboursOf(cell)) {
+            if (!cellKeySet.has(`${neighbour.row}${mapKeySeparator}${neighbour.col}`)) {
+                yield neighbour;
             }
         }
     }
-    const liveCellsSet = new Set(liveCellsArray.map(cell => `${cell.row}${mapKeySeparator}${cell.col}`));
-
-    return countNeighbours(Array.from(allPossibleZombies()), liveCellsArray, mapKeySeparator);
 }
 
 function* allNeighboursOf(cell) {
