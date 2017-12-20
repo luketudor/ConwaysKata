@@ -19,14 +19,12 @@ function possibleNewCellsMap(liveCellsArray) {
     return countNeighbours(Array.from(allPossibleZombies), liveCellsArray, mapKeySeparator);
 }
 
-function allNeighboursOf(cell) {
-    const neighbours = [];
+function* allNeighboursOf(cell) {
     for (const row of [cell.row - 1, cell.row, cell.row + 1]) {
         for (const col of [cell.col - 1, cell.col, cell.col + 1]) {
-            neighbours.push({row, col});
+            yield {row, col};
         }
     }
-    return neighbours;
 }
 
 function newCellsWithCorrectNeighbours(possibleNewCellsMap) {
