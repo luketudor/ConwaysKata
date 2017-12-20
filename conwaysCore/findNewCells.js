@@ -30,14 +30,10 @@ function allNeighboursOf(cell) {
 }
 
 function newCellsWithCorrectNeighbours(possibleNewCellsMap) {
-    const trueZombies = [];
-    for (const [key, count] of possibleNewCellsMap) {
-        if (count === 3) {
-            const location = key.split(mapKeySeparator);
-            trueZombies.push({row: parseInt(location[0], 10), col: parseInt(location[1], 10)});
-        }
-    }
-    return trueZombies;
+    return Array.from(possibleNewCellsMap).filter(mapTuple => mapTuple[1] === 3).map(mapTuple => {
+        const location = mapTuple[0].split(mapKeySeparator);
+        return {row: parseInt(location[0], 10), col: parseInt(location[1], 10)};
+    });
 }
 
 module.exports.newCells = newCells;
