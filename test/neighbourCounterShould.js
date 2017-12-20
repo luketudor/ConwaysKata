@@ -1,6 +1,6 @@
 let assert = require('assert');
-let countNeighbours = require('../neighbourCounter').countNeighbours;
-let howManyNeighbours = require('../neighbourCounter').howManyNeighbours;
+let countNeighbours = require('../conwaysCore/neighbourCounter').countNeighbours;
+let howManyNeighbours = require('../conwaysCore/neighbourCounter').howManyNeighbours;
 
 suite('NeighbourCounter', function () {
     suite('#CountNeighbours', function () {

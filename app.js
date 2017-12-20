@@ -1,6 +1,6 @@
-let nextGridState = require('./conways').nextGridState;
-let printGrid = require('./conwaysLogger').printGrid;
-let parseBitmap = require('./conways').parseBitmap;
+let nextGridState = require('./conwaysCore/conways').nextGridState;
+let printGrid = require('./conwaysCore/conwaysLogger').printGrid;
+let parseBitmap = require('./conwaysCore/conways').parseBitmap;
 
 function runApp(liveCells, milliseconds) {
     printGrid(liveCells);

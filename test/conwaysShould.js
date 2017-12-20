@@ -1,6 +1,6 @@
 let assert = require('assert');
-let nextGridState = require('../conways').nextGridState;
-let parseBitmap = require('../conways').parseBitmap;
+let nextGridState = require('../conwaysCore/conways').nextGridState;
+let parseBitmap = require('../conwaysCore/conways').parseBitmap;
 
 suite('Conways', function () {
     suite('#NextBoardState', function () {

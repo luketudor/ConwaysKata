@@ -1,6 +1,6 @@
 let assert = require('assert');
-let survivingCells = require('../cellTransition').survivingCells;
-let newCells = require('../cellTransition').newCells;
+let survivingCells = require('../conwaysCore/cellTransition').survivingCells;
+let newCells = require('../conwaysCore/cellTransition').newCells;
 
 suite('CellTransition', function () {
     suite('#SurvivingCells', function() {
