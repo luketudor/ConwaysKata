@@ -7,9 +7,7 @@ function newCells(currentLiveCells) {
 }
 
 function possibleNewCellsMap(liveCellsArray) {
-
     const cellKeySet = new Set(liveCellsArray.map(cell => `${cell.row}${mapKeySeparator}${cell.col}`));
-
     return countNeighbours(
         Array.from(new Set(allPossibleZombies(liveCellsArray, cellKeySet))), liveCellsArray, mapKeySeparator
     );
