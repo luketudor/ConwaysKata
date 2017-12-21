@@ -35,7 +35,7 @@ function* allNeighboursOf(cell) {
 function newCellsWithCorrectNeighbours(possibleNewCellsMap) {
     return Array.from(possibleNewCellsMap).filter(mapTuple => mapTuple[1] === 3).map(mapTuple => {
         const location = mapTuple[0].split(mapKeySeparator);
-        return {row: parseInt(location[0], 10), col: parseInt(location[1], 10)};
+        return {row: +location[0], col: +location[1]};
     });
 }
 
